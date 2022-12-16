@@ -1,6 +1,17 @@
 public class Person {
     private String name, surname, dateOfBirth, mobileNumber;
 
+    public Person(String name, String surname, String dateOfBirth, String mobileNumber){
+        this.name = name;
+        this.surname = surname;
+        this.dateOfBirth = dateOfBirth;
+        this.mobileNumber = mobileNumber;
+    }
+
+    public Person() {
+
+    }
+
     public String getName() {
         return name;
     }

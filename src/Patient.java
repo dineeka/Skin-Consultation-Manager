@@ -1,8 +1,8 @@
 public class Patient extends Person{
     private String patientId;
 
-    public Patient(){
-        patientId = this.patientId;
+    public Patient(String pId){
+        this.patientId = pId;
     }
 
     public String getPatientId(){
