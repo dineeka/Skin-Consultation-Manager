@@ -1,3 +1,5 @@
+package w1867122;
+
 public interface SkinConsultationManager {
     void add(); //method to add doctors
 

@@ -1,10 +1,15 @@
-import java.io.*;
+package w1867122;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class WestminsterSkinConsultationManager implements SkinConsultationManager{
+public class WestminsterSkinConsultationManager implements SkinConsultationManager {
     static int count; //Number of doctors
 
     ArrayList<Doctor> DOCTOR_ARRAY_LIST = new ArrayList<>();
@@ -99,7 +104,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     public void save() {
         try {
-            FileWriter fileWriter = new FileWriter("src/DoctorDetails.txt", true);
+            FileWriter fileWriter = new FileWriter("src/w1867122/DoctorDetails.txt", true);
             fileWriter.write(DOCTOR_ARRAY_LIST.toString());
             fileWriter.close();
         } catch (IOException e) {
@@ -107,7 +112,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         }
 
         try {
-            FileReader fileReader = new FileReader("src/DoctorDetails.txt");
+            FileReader fileReader = new FileReader("src/w1867122/DoctorDetails.txt");
             BufferedReader bufferedReader = new BufferedReader(fileReader);
 
             String line = bufferedReader.readLine();
@@ -121,6 +126,10 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             e.printStackTrace();
         }
         System.out.println("saved successfully!");
+    }
+
+    public ArrayList<Doctor> getArrayList(){
+        return DOCTOR_ARRAY_LIST;
     }
 
 }

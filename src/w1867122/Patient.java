@@ -1,4 +1,6 @@
-public class Patient extends Person{
+package w1867122;
+
+public class Patient extends Person {
     private String patientId;
 
     public Patient(String pId){

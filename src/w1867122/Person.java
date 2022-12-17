@@ -1,3 +1,5 @@
+package w1867122;
+
 public class Person {
     private String name, surname, dateOfBirth, mobileNumber;
 

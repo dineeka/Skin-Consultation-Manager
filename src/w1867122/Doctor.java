@@ -1,4 +1,6 @@
-public class Doctor extends Person{
+package w1867122;
+
+public class Doctor extends Person {
 
     private String specialisation;
     private int medLicenceNumber;
