@@ -4,14 +4,13 @@ import w1867122.Doctor;
 import w1867122.WestminsterSkinConsultationManager;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class DoctorTable{
-    private JButton btnSort;
+    private JLabel header;
 
     private JButton btnBack;
-
-    private JTable docTable;
 
     ArrayList<Doctor> DOCTOR_DETAILS;
 
@@ -21,14 +20,17 @@ public class DoctorTable{
 
         JFrame frame =new JFrame();
 
+        header =new JLabel("Doctor Details");
+        frame.getContentPane().add(header, BorderLayout.NORTH);
+
         JScrollPane scrollPane = new JScrollPane();
         JTable doctorTable = new JTable();
 
         doctorTable.setModel(new TableModel(DOCTOR_DETAILS));
         scrollPane.setViewportView(doctorTable);
+        doctorTable.setAutoCreateRowSorter(true);
 
-
-        frame.add(scrollPane);
+        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
         frame.setSize(1000,500);
         frame.setVisible(true);
 

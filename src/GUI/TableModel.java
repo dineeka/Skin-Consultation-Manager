@@ -3,7 +3,6 @@ package GUI;
 import w1867122.Doctor;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.ArrayList;
 import java.util.List;
 
 public class TableModel extends AbstractTableModel {
