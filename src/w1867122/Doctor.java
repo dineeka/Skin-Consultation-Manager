@@ -1,14 +1,16 @@
 package w1867122;
 
+
 public class Doctor extends Person {
 
     private String specialisation;
     private int medLicenceNumber;
 
+
     public Doctor(){
     }
 
-    public Doctor(String name, String surname, String dateOfBirth, String mobileNumber, int Lnum, String spec){
+    public Doctor(String name, String surname, String dateOfBirth, int mobileNumber, int Lnum, String spec){
         super(name,surname,dateOfBirth,mobileNumber);
         this.specialisation = spec;
         this.medLicenceNumber = Lnum;
@@ -39,4 +41,5 @@ public class Doctor extends Person {
                 "\nDoctor's License Number : " + getMedLicenceNumber() +
                 "\nDoctor's Specialisation : " + getSpecialisation() + "\n");
     }
+
 }

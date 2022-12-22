@@ -1,5 +1,7 @@
 package w1867122;
 
+import GUI.HomePage;
+
 import java.io.IOException;
 
 public class Main {
@@ -36,9 +38,13 @@ public class Main {
                 case 4:
                     westminsterSkinConsultationManager.save();
                     continue;
+                case 5:
+                    new HomePage();
+                    continue;
                 case 6:
                     run = false;
             }
+            System.out.println(WestminsterSkinConsultationManager.DOCTOR_ARRAY_LIST);
         }
     }
 }

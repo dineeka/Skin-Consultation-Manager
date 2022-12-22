@@ -1,0 +1,36 @@
+[
+Doctor's Name            : d
+Doctor's Surname          : d
+Doctor's Date of Birth : d
+Doctor's Mobile Number : 3
+Doctor's License Number : 3
+Doctor's Specialisation : w
+][
+Doctor's Name            : s
+Doctor's Surname          : s
+Doctor's Date of Birth : 23
+Doctor's Mobile Number : 2
+Doctor's License Number : 31
+Doctor's Specialisation : we
+, 
+Doctor's Name            : we
+Doctor's Surname          : we
+Doctor's Date of Birth : 23
+Doctor's Mobile Number : 2
+Doctor's License Number : 2
+Doctor's Specialisation : we
+][
+Doctor's Name            : s
+Doctor's Surname          : s
+Doctor's Date of Birth : 23
+Doctor's Mobile Number : 2
+Doctor's License Number : 31
+Doctor's Specialisation : we
+, 
+Doctor's Name            : we
+Doctor's Surname          : we
+Doctor's Date of Birth : 23
+Doctor's Mobile Number : 2
+Doctor's License Number : 2
+Doctor's Specialisation : we
+]

@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class WestminsterSkinConsultationManager implements SkinConsultationManager {
     static int count; //Number of doctors
 
-    ArrayList<Doctor> DOCTOR_ARRAY_LIST = new ArrayList<>();
+    static ArrayList<Doctor> DOCTOR_ARRAY_LIST = new ArrayList<>();
 
     public String inputStr(String msg) {
         Scanner sc = new Scanner(System.in);
@@ -66,7 +66,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
             String name = inputStr("Enter the name: ");
             String surname = inputStr("Enter the surname: ");
             String DateOfBirth = inputStr("Enter the Date of Birth: ");
-            String mobileNumber = inputStr("Enter the mobile number: ");
+            int mobileNumber = inputInt("Enter the mobile number: ");
             int medLicenseNumber = inputInt("Enter the medical license number: ");
             String specialisation = inputStr("Enter the specialisation: ");
 
@@ -94,7 +94,6 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
 
     public void print(){
         ArrayList<Doctor> SORT_LIST = DOCTOR_ARRAY_LIST;
-        String surnameI, surnameII;
 
         SORT_LIST.sort(Comparator.comparing(Doctor::getSurname, String.CASE_INSENSITIVE_ORDER));
         //reference -> https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Comparator.html
@@ -128,8 +127,11 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         System.out.println("saved successfully!");
     }
 
-    public ArrayList<Doctor> getArrayList(){
+    public static ArrayList<Doctor> getArrayList(){
         return DOCTOR_ARRAY_LIST;
     }
+
+
+
 
 }

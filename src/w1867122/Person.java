@@ -1,9 +1,10 @@
 package w1867122;
 
 public class Person {
-    private String name, surname, dateOfBirth, mobileNumber;
+    private String name, surname, dateOfBirth;
+    private int mobileNumber;
 
-    public Person(String name, String surname, String dateOfBirth, String mobileNumber){
+    public Person(String name, String surname, String dateOfBirth, int mobileNumber){
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
@@ -26,7 +27,7 @@ public class Person {
         return dateOfBirth;
     }
 
-    public String getMobileNumber() {
+    public int getMobileNumber() {
         return mobileNumber;
     }
 
@@ -42,7 +43,7 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setMobileNumber(String mobileNumber) {
+    public void setMobileNumber(int mobileNumber) {
         this.mobileNumber = mobileNumber;
     }
 }
