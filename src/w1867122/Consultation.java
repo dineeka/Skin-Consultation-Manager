@@ -1,11 +1,11 @@
 package w1867122;
 
-import javax.print.attribute.DateTimeSyntax;
+import java.time.LocalDateTime;
 
 public class Consultation {
-    private Doctor doctor;
+    private int licenseNum;
     private Patient patient;
-    private DateTimeSyntax dateTime;
+    private LocalDateTime dateTime;
     private int cost;
     private String notes;
 
@@ -17,18 +17,22 @@ public class Consultation {
      * @param notes
      * @param
      */
-    public Consultation(Doctor doctor, Patient patient, DateTimeSyntax dateTime, int price, String notes){
-        this.doctor = doctor;
+    public Consultation(int licenseNum, Patient patient, LocalDateTime dateTime, int price, String notes){
+        this.licenseNum = licenseNum;
         this.patient = patient;
         this.dateTime = dateTime;
         this.cost = price;
         this.notes = notes;
     }
 
+    public int getLicenseNum() {
+        return licenseNum;
+    }
+
     /**
      * @return
      */
-    public DateTimeSyntax getDateTime() {
+    public LocalDateTime getDateTime() {
         return dateTime;
     }
 
@@ -46,10 +50,14 @@ public class Consultation {
         return notes;
     }
 
+    public void setLicenseNum(int licenseNum) {
+        this.licenseNum = licenseNum;
+    }
+
     /**
      * @param dateTime
      */
-    public void setDateTime(DateTimeSyntax dateTime) {
+    public void setDateTime(LocalDateTime dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -70,7 +78,7 @@ public class Consultation {
     @Override
     public String toString() {
         return "Consultation{" +
-                "doctor=" + doctor +
+                "DoctorLicenseNumber=" + licenseNum +
                 ", patient=" + patient +
                 ", dateTime=" + dateTime +
                 ", cost=" + cost +

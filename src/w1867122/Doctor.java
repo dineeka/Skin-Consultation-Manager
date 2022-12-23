@@ -1,6 +1,8 @@
 package w1867122;
 
 
+import java.time.LocalDate;
+
 public class Doctor extends Person {
 
     private String specialisation;
@@ -10,7 +12,7 @@ public class Doctor extends Person {
     public Doctor(){
     }
 
-    public Doctor(String name, String surname, String dateOfBirth, int mobileNumber, int Lnum, String spec){
+    public Doctor(String name, String surname, LocalDate dateOfBirth, int mobileNumber, int Lnum, String spec){
         super(name,surname,dateOfBirth,mobileNumber);
         this.specialisation = spec;
         this.medLicenceNumber = Lnum;

@@ -1,10 +1,14 @@
 package w1867122;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class Person {
-    private String name, surname, dateOfBirth;
+    private String name, surname;
+    private LocalDate dateOfBirth;
     private int mobileNumber;
 
-    public Person(String name, String surname, String dateOfBirth, int mobileNumber){
+    public Person(String name, String surname, LocalDate dateOfBirth, int mobileNumber){
         this.name = name;
         this.surname = surname;
         this.dateOfBirth = dateOfBirth;
@@ -23,7 +27,7 @@ public class Person {
         return surname;
     }
 
-    public String getDateOfBirth() {
+    public LocalDate getDateOfBirth() {
         return dateOfBirth;
     }
 
@@ -39,7 +43,7 @@ public class Person {
         this.surname = surname;
     }
 
-    public void setDateOfBirth(String dateOfBirth) {
+    public void setDateOfBirth(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
 

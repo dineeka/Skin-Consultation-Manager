@@ -20,7 +20,6 @@ public class HomePage extends JFrame{
         frame=new JFrame("Westminster Skin Consultation Manager");
         frame.setSize(600,300);
 
-
         p1 = new JPanel();
         p1.setLayout(new GridLayout(2,1,2,2));
 
@@ -53,7 +52,7 @@ public class HomePage extends JFrame{
             if (btnLabel.equals("Doctors")){
                 new DoctorTable();
             }else if(btnLabel.equals("Consultation")){
-
+                new ConsultationForm();
             }
         }
     }

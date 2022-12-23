@@ -1,7 +1,9 @@
 package w1867122;
 
+import java.text.ParseException;
+
 public interface SkinConsultationManager {
-    void add(); //method to add doctors
+    void add() throws ParseException; //method to add doctors
 
     void delete(); //method to delete doctors
 

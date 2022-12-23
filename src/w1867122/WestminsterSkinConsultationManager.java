@@ -4,10 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Locale;
-import java.util.Scanner;
+import java.text.ParseException;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.util.*;
 
 public class WestminsterSkinConsultationManager implements SkinConsultationManager {
     static int count; //Number of doctors
@@ -47,6 +47,28 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         return Integer.parseInt(input);
     }
 
+    public LocalDate inputDate(String msg) throws DateTimeException {
+        Scanner sc = new Scanner(System.in);
+        String input;
+        LocalDate date;
+        while (true) {
+            System.out.println(msg);
+            input = sc.next();
+            if (input.isEmpty()) { //if the input is empty
+                System.out.println("Error - This Field Cannot be Empty");
+            } else {
+                try {
+                    date = LocalDate.parse(input);
+                    break;
+                }
+                catch(DateTimeException e){
+                    System.out.println("This cannot be parsed to a date");
+                }
+            }
+        }
+        return date;
+    }
+
     public int checkDoctor(int licenseNumber){ //checks if the doctor is in the system and returns the index
         int index=-1;
         int count =0;
@@ -61,11 +83,11 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         return index;
     }
 
-    public void add() {
+    public void add() throws ParseException {
         if (DOCTOR_ARRAY_LIST.size()<10) {
             String name = inputStr("Enter the name: ");
             String surname = inputStr("Enter the surname: ");
-            String DateOfBirth = inputStr("Enter the Date of Birth: ");
+            LocalDate DateOfBirth = inputDate("Enter the Date of Birth: ");
             int mobileNumber = inputInt("Enter the mobile number: ");
             int medLicenseNumber = inputInt("Enter the medical license number: ");
             String specialisation = inputStr("Enter the specialisation: ");
@@ -98,7 +120,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         SORT_LIST.sort(Comparator.comparing(Doctor::getSurname, String.CASE_INSENSITIVE_ORDER));
         //reference -> https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Comparator.html
 
-        System.out.println(SORT_LIST.toString());
+        System.out.println(SORT_LIST);
     }
 
     public void save() {
