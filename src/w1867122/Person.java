@@ -1,9 +1,10 @@
 package w1867122;
 
+import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
 
-public class Person {
+
+public class Person implements Serializable{
     private String name, surname;
     private LocalDate dateOfBirth;
     private int mobileNumber;

@@ -1,18 +1,15 @@
 package w1867122;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.ParseException;
+import java.io.*;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.util.*;
 
-public class WestminsterSkinConsultationManager implements SkinConsultationManager {
+public class WestminsterSkinConsultationManager implements SkinConsultationManager{
     static int count; //Number of doctors
 
     static ArrayList<Doctor> DOCTOR_ARRAY_LIST = new ArrayList<>();
+    static ArrayList<Consultation> CONSULTATIONS = new ArrayList<>();
 
     public String inputStr(String msg) {
         Scanner sc = new Scanner(System.in);
@@ -52,7 +49,7 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         String input;
         LocalDate date;
         while (true) {
-            System.out.println(msg);
+            System.out.println(msg + " Format: [YYYY-MM-DD]");
             input = sc.next();
             if (input.isEmpty()) { //if the input is empty
                 System.out.println("Error - This Field Cannot be Empty");
@@ -83,21 +80,37 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
         return index;
     }
 
-    public void add() throws ParseException {
+    public int licenseNumberCheck(int medNo){
+
+        if(checkDoctor(medNo) != -1){
+            System.out.println("A doctor with this medical license number is already registered");
+        }else {
+            return medNo;
+        }
+        return 0;
+    }
+
+    public void add() {
         if (DOCTOR_ARRAY_LIST.size()<10) {
-            String name = inputStr("Enter the name: ");
-            String surname = inputStr("Enter the surname: ");
-            LocalDate DateOfBirth = inputDate("Enter the Date of Birth: ");
-            int mobileNumber = inputInt("Enter the mobile number: ");
-            int medLicenseNumber = inputInt("Enter the medical license number: ");
-            String specialisation = inputStr("Enter the specialisation: ");
+            while (true){
+                String name = inputStr("Enter the name: ");
+                String surname = inputStr("Enter the surname: ");
+                LocalDate DateOfBirth = inputDate("Enter the Date of Birth: ");
+                int mobileNumber = inputInt("Enter the mobile number: ");
+                int medLicenseNumber = licenseNumberCheck(inputInt("Enter the medical license number: "));
+                if (medLicenseNumber == 0) {
+                    break;
+                }
+                String specialisation = inputStr("Enter the specialisation: ");
 
-            DOCTOR_ARRAY_LIST.add(new Doctor(name,surname,DateOfBirth,mobileNumber,medLicenseNumber,specialisation));
-            count++;
+                DOCTOR_ARRAY_LIST.add(new Doctor(name, surname, DateOfBirth, mobileNumber, medLicenseNumber, specialisation));
+                count++;
 
-            System.out.println(DOCTOR_ARRAY_LIST.toString());
+                System.out.println(DOCTOR_ARRAY_LIST.toString());
 
-            System.out.println("Doctor added successfully");
+                System.out.println("Doctor added successfully");
+                break;
+            }
         }else{
             System.out.println("Adding unsuccessful! Maximum number of doctors reached");
         }
@@ -124,36 +137,43 @@ public class WestminsterSkinConsultationManager implements SkinConsultationManag
     }
 
     public void save() {
-        try {
-            FileWriter fileWriter = new FileWriter("src/w1867122/DoctorDetails.txt", true);
-            fileWriter.write(DOCTOR_ARRAY_LIST.toString());
-            fileWriter.close();
-        } catch (IOException e) {
+        try{
+            FileOutputStream fileOutputStream = new FileOutputStream("src/w1867122/DoctorDetails.txt");
+            ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+
+            objectOutputStream.writeObject(DOCTOR_ARRAY_LIST);
+
+            objectOutputStream.close();
+
+        } catch (IOException e){
             e.printStackTrace();
         }
 
-        try {
-            FileReader fileReader = new FileReader("src/w1867122/DoctorDetails.txt");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-
-            String line = bufferedReader.readLine();
-            while(line != null){
-                line= bufferedReader.readLine();
-            }
-            fileReader.close();
-            bufferedReader.close();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         System.out.println("saved successfully!");
+    }
+
+    public void read(){
+        try{
+            FileInputStream fileInputStream = new FileInputStream("src/w1867122/DoctorDetails.txt");
+            ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+
+            ArrayList<Doctor> docList = (ArrayList<Doctor>) objectInputStream.readObject();
+
+            objectInputStream.close();
+            DOCTOR_ARRAY_LIST = docList;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void display(){
+        read();
+        System.out.println(DOCTOR_ARRAY_LIST);
     }
 
     public static ArrayList<Doctor> getArrayList(){
         return DOCTOR_ARRAY_LIST;
     }
-
-
 
 
 }

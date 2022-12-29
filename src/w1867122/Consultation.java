@@ -6,6 +6,7 @@ public class Consultation {
     private int licenseNum;
     private Patient patient;
     private LocalDateTime dateTime;
+    private int hours;
     private int cost;
     private String notes;
 
@@ -17,10 +18,11 @@ public class Consultation {
      * @param notes
      * @param
      */
-    public Consultation(int licenseNum, Patient patient, LocalDateTime dateTime, int price, String notes){
+    public Consultation(int licenseNum, Patient patient, LocalDateTime dateTime,int hours, int price, String notes){
         this.licenseNum = licenseNum;
         this.patient = patient;
         this.dateTime = dateTime;
+        this.hours = hours;
         this.cost = price;
         this.notes = notes;
     }
@@ -29,8 +31,10 @@ public class Consultation {
         return licenseNum;
     }
 
+    public Patient getPatient(){return patient;}
+
     /**
-     * @return
+     * @return patient object
      */
     public LocalDateTime getDateTime() {
         return dateTime;

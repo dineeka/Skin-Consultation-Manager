@@ -20,7 +20,9 @@ public class DoctorTable{
 
         JFrame frame =new JFrame();
 
-        header =new JLabel("Doctor Details");
+        header =new JLabel("Doctor Details", SwingConstants.CENTER);
+        Font headerFont = new Font("SansSerif", Font.BOLD, 24);
+        header.setFont(headerFont);
         frame.getContentPane().add(header, BorderLayout.NORTH);
 
         JScrollPane scrollPane = new JScrollPane();

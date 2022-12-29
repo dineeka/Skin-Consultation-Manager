@@ -2,11 +2,9 @@ package w1867122;
 
 import GUI.HomePage;
 
-import java.io.IOException;
-import java.text.ParseException;
 
 public class Main {
-    public static void main(String[] args) throws IOException, ParseException {
+    public static void main(String[] args){
         boolean run=true;
 
         int option;
@@ -16,13 +14,16 @@ public class Main {
         System.out.println("-------Westminster Skin Consultation Manager-------");
         System.out.println("----Menu----\n");
 
+        westminsterSkinConsultationManager.read();
+
         while(run){
             System.out.println("1 - Add a new Doctor");
             System.out.println("2 - Delete a Doctor");
             System.out.println("3 - Print the list of Doctors");
             System.out.println("4 - Save");
-            System.out.println("5 - Open GUI");
-            System.out.println("6 - Exit");
+            System.out.println("5 - Display File Details");
+            System.out.println("6 - Open GUI");
+            System.out.println("7 - Exit");
 
             option = westminsterSkinConsultationManager.inputInt("Enter your selection: ");
 
@@ -40,9 +41,12 @@ public class Main {
                     westminsterSkinConsultationManager.save();
                     continue;
                 case 5:
-                    new HomePage();
+                    westminsterSkinConsultationManager.display();
                     continue;
                 case 6:
+                    new HomePage();
+                    continue;
+                case 7:
                     run = false;
             }
             System.out.println(WestminsterSkinConsultationManager.DOCTOR_ARRAY_LIST);

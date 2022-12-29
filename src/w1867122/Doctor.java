@@ -1,9 +1,10 @@
 package w1867122;
 
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Doctor extends Person {
+public class Doctor extends Person implements Serializable{
 
     private String specialisation;
     private int medLicenceNumber;

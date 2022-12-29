@@ -3,7 +3,7 @@ package GUI;
 import w1867122.Doctor;
 
 import javax.swing.table.AbstractTableModel;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 public class TableModel extends AbstractTableModel {
@@ -57,7 +57,7 @@ public class TableModel extends AbstractTableModel {
             case 1:
                 return String.class;
             case 2:
-                return Date.class;
+                return LocalDate.class;
             case 3:
                 return Integer.class;
             case 4:
